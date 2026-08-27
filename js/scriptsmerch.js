@@ -239,8 +239,6 @@ if (coffeeSystemReady) {
 
     updateCoffee();
 }
-   
-
 
 
 const blends = [

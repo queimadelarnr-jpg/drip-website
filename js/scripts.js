@@ -18,6 +18,33 @@ const logosDesktop = [
     "img/drip5_1920.png"
 ];
 
+/*
+ * Keep the original 1920 px homepage card composition intact on narrower
+ * desktop screens. CSS zoom affects layout as well as visuals, so the footer
+ * continues immediately after the proportionally scaled products section.
+ * Mobile/tablet layouts keep using the original CSS breakpoints.
+ */
+function scaleHomepageProducts() {
+    const productsHome = document.getElementById("products-home");
+
+    if (!productsHome) return;
+
+    const originalWidth = 1920;
+    const mobileBreakpoint = 768;
+    const viewportWidth = window.innerWidth;
+
+    if (viewportWidth > mobileBreakpoint && viewportWidth < originalWidth) {
+        productsHome.style.width = `${originalWidth}px`;
+        productsHome.style.zoom = String(viewportWidth / originalWidth);
+    } else {
+        productsHome.style.width = "";
+        productsHome.style.zoom = "";
+    }
+}
+
+scaleHomepageProducts();
+window.addEventListener("resize", scaleHomepageProducts);
+
 let current = 0;
 
 function getLogos(){
@@ -144,7 +171,6 @@ if (newsletterForm) {
         newsletterForm.reset();
     });
 }
-
 
 
 
