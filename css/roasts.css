@@ -241,6 +241,7 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 220px;
+	z-index: 9999;
 }
 
 .bottom-roast{
