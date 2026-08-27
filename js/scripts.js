@@ -30,7 +30,7 @@ function scaleHomepageProducts() {
     if (!productsHome) return;
 
     const originalWidth = 1920;
-    const mobileBreakpoint = 768;
+    const mobileBreakpoint = 1024;
     const viewportWidth = window.innerWidth;
 
     if (viewportWidth > mobileBreakpoint && viewportWidth < originalWidth) {
@@ -171,7 +171,6 @@ if (newsletterForm) {
         newsletterForm.reset();
     });
 }
-
 
 
 

@@ -1,13 +1,10 @@
 /*
- * Conservative desktop scaling for the DRIP homepage.
- *
- * The original composition was designed at 1920 px. Between tablet and
- * 1920 px, JavaScript scales the complete products block as one unit so the
- * original card positions, proportions, hover states, map and Spotify embed
- * stay together. The original tablet/mobile media queries remain untouched.
+ * Responsive homepage layer.
+ * Desktop keeps the original 1920 px composition and scales it as one unit.
+ * Tablet and mobile use the same vertical card proportion as the MERCH page.
  */
 
-@media (min-width: 769px) and (max-width: 1919px) {
+@media (min-width: 1025px) and (max-width: 1919px) {
 	html,
 	body {
 		overflow-x: hidden;
@@ -16,5 +13,256 @@
 	#products-home {
 		width: 1920px;
 		max-width: none;
+	}
+}
+
+/* Tablet: two equal vertical cards per row. */
+@media (max-width: 1024px) {
+	html,
+	body {
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+
+	#products-home {
+		width: 100% !important;
+		max-width: 100%;
+		padding-inline: 0;
+		zoom: 1 !important;
+	}
+
+	#products-home > .row {
+		width: 100%;
+		margin-inline: 0;
+	}
+
+	#title-one {
+		width: min(100%, 722px);
+		margin: clamp(76px, 10vw, 120px) auto 24px;
+		padding-inline: 0;
+		text-align: left;
+	}
+
+	.title,
+	.subtitle {
+		padding-left: 0;
+		font-size: clamp(34px, 5vw, 44px);
+	}
+
+	#hor-coffee-row,
+	#ver-coffee-row,
+	#hor-social-row {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 351px));
+		gap: 20px;
+		justify-content: center;
+		width: 100%;
+		margin: 0 0 20px;
+		padding-inline: 20px;
+	}
+
+	#card-one,
+	#card-two,
+	#card-three,
+	#card-four,
+	#card-five,
+	#card-six,
+	#card-seven,
+	#card-map,
+	#card-spotify {
+		position: relative;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 351 / 451;
+		margin: 0;
+		padding: 0;
+		border-radius: 20px;
+		overflow: hidden;
+	}
+
+	/* Use the existing vertical artwork on cards that are horizontal on desktop. */
+	#card-one .circles-one,
+	#card-two .circles-one,
+	#card-six .circles-one,
+	#card-seven .circles-one {
+		display: none;
+	}
+
+	#card-one .mobile-view-1,
+	#card-two .mobile-view-1,
+	#card-six .mobile-view,
+	#card-seven .mobile-view-1 {
+		display: block;
+		position: absolute;
+		top: -20%;
+		left: -40%;
+		width: auto;
+		height: auto;
+		max-width: none;
+	}
+
+	#colombia-pack,
+	#ethiopia-pack,
+	#early-pack,
+	#golden-pack,
+	#owl-pack {
+		top: 47%;
+		left: 50%;
+		right: auto;
+		width: 34%;
+		max-width: 145px;
+		transform: translate(-50%, -50%);
+	}
+
+	#mug-one,
+	#tee-one {
+		top: 48%;
+		left: 50%;
+		right: auto;
+		width: 54%;
+		max-width: 220px;
+		transform: translate(-50%, -50%);
+	}
+
+	.card-text {
+		bottom: 20px;
+		left: 22px;
+		z-index: 300;
+		margin-left: 0;
+	}
+
+	.card-title,
+	.card-subtitle {
+		font-size: clamp(18px, 2.8vw, 26px);
+	}
+
+	.card-text-1,
+	.card-text-3,
+	.card-text-4,
+	.card-text-5 {
+		bottom: 22px;
+		left: 50%;
+		z-index: 301;
+		width: calc(100% - 44px);
+		margin-left: 0;
+		transform: translateX(-50%);
+	}
+
+	.card-main,
+	.card-main-tall {
+		width: 100%;
+		margin: 0;
+		font-size: clamp(12px, 1.8vw, 16px);
+	}
+
+	#card-one:hover #colombia-pack,
+	#card-two:hover #ethiopia-pack,
+	#card-three:hover #early-pack,
+	#card-four:hover #golden-pack,
+	#card-five:hover #owl-pack,
+	#card-six:hover #mug-one,
+	#card-seven:hover #tee-one {
+		transform: translate(-50%, -50%) scale(1.12) rotate(8deg);
+	}
+
+	/* Map and Spotify use the same card ratio as every product card. */
+	#map {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border-radius: 20px;
+		overflow: hidden;
+	}
+
+	#map iframe {
+		width: 115%;
+		height: 115%;
+		max-width: none;
+		border: 0;
+		border-radius: 20px;
+	}
+
+	#map svg {
+		top: 35%;
+		left: 50%;
+		right: auto;
+		width: clamp(58px, 8vw, 72px);
+		transform: translateX(-50%);
+	}
+
+	#map-logo {
+		top: 43%;
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+	}
+
+	#map:hover #location {
+		top: 32%;
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+	}
+
+	#map:hover #map-logo {
+		top: 39%;
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+	}
+
+	#card-spotify .spotify-large {
+		display: none;
+	}
+
+	#card-spotify .spotify-mobile {
+		display: block;
+		width: 100% !important;
+		height: 100% !important;
+		border-radius: 20px !important;
+	}
+}
+
+/* Mobile: one centered vertical card per row. */
+@media (max-width: 600px) {
+	#title-one {
+		width: min(100% - 32px, 351px);
+		margin-top: 64px;
+	}
+
+	#title-one br {
+		display: none;
+	}
+
+	.title,
+	.subtitle {
+		font-size: clamp(34px, 11vw, 44px);
+	}
+
+	#hor-coffee-row,
+	#ver-coffee-row,
+	#hor-social-row {
+		grid-template-columns: minmax(0, 351px);
+		gap: 18px;
+		margin-right: 0;
+		padding-inline: 16px;
+	}
+
+	#card-one,
+	#card-two,
+	#card-three,
+	#card-four,
+	#card-five,
+	#card-six,
+	#card-seven,
+	#card-map,
+	#card-spotify {
+		width: min(100%, 351px);
+	}
+
+	.card-title,
+	.card-subtitle {
+		font-size: clamp(18px, 6vw, 26px);
 	}
 }
