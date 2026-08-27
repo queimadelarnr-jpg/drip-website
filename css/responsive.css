@@ -265,4 +265,126 @@
 	.card-subtitle {
 		font-size: clamp(18px, 6vw, 26px);
 	}
+
+	/* Fluid footer: no fixed 351 px fields or legacy side margins. */
+	.footer {
+		width: 100%;
+		min-height: auto;
+		padding: 48px 16px 24px;
+		overflow: hidden;
+	}
+
+	.footer > .container {
+		width: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	#first-footer-line {
+		position: static;
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 14px;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding-top: 0;
+	}
+
+	#first-footer-line > div {
+		width: auto;
+		padding: 0;
+	}
+
+	#first-footer-line > div:last-child,
+	.menu-footer {
+		display: none;
+	}
+
+	#logo-outline,
+	#logo-ext {
+		position: static;
+		display: block;
+		margin: 0;
+	}
+
+	#logo-outline {
+		width: 70px;
+	}
+
+	#logo-ext {
+		width: 140px;
+		max-width: 100%;
+	}
+
+	.bottom-footer {
+		position: static;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		padding-top: 48px;
+	}
+
+	.join {
+		position: static;
+		right: auto;
+		align-items: center;
+		width: min(100%, 351px);
+		margin: 0 auto;
+	}
+
+	.join label,
+	#subscribe-txt {
+		width: 100%;
+		margin: 0 0 20px;
+		text-align: center;
+		font-size: clamp(20px, 7vw, 26px);
+	}
+
+	#newsletter {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	#subscribe,
+	#btn-subscribe {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+	}
+
+	#subscribe {
+		border-radius: 20px 20px 0 0;
+	}
+
+	#btn-subscribe {
+		border-radius: 0 0 20px 20px;
+	}
+
+	#message {
+		width: 100%;
+		margin: 12px 0 0;
+		padding: 0;
+	}
+
+	.contact {
+		position: static;
+		width: min(100%, 351px);
+		margin: 56px auto 0;
+		text-align: center;
+	}
+
+	.contact h3 {
+		font-size: clamp(19px, 6.5vw, 26px);
+		line-height: 1.15;
+	}
+
+	.copy {
+		width: 100%;
+		margin: 48px auto 0;
+		padding-inline: 4px;
+	}
 }
