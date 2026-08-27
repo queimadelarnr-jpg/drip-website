@@ -741,8 +741,8 @@ a{
 #early-pack{
 	position: absolute;
 	top: 50%;
-	right: 175px;
-	transform: translate(-50%, -50%);
+	right: 50%;
+	transform: translate(50%, -50%);
 	width: 119px;
 	z-index: 200;
 	transition: .3s;
