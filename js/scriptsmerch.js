@@ -202,10 +202,6 @@ if (worldMap) {
     };
 }
 
-if (moveMap) {
-    moveMap(coffee.map);
-}
-
 if (coffeeSystemReady) {
 
     function updateCoffee() {
@@ -242,25 +238,6 @@ if (coffeeSystemReady) {
     }
 
     updateCoffee();
-}
-
-if (worldMap) {
-
-    const locations = {
-        brazil: { x: 430, y: 25, scale: 2.0 },
-        colombia: { x: 730, y: 200, scale: 2.1 },
-        ethiopia: { x: -510, y: 250, scale: 2 },
-        kenya: { x: -510, y: 105, scale: 2 }
-    };
-
-    function moveMap(country) {
-        const loc = locations[country];
-        if (!loc) return;
-
-        worldMap.style.transform =
-            `translate(${loc.x}px, ${loc.y}px) scale(${loc.scale})`;
-    }
-
 }
    
 
